@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -36,8 +37,14 @@ namespace aoc_utils
             to_split.erase(0, pos + delim.length());
         }
         // last item is out of the loop and becomes to_split
-        out.push_back(to_split);
+        if (!to_split.empty())
+            out.push_back(to_split);
 
         return out;
+    }
+    template <typename T>
+    bool vec_contains(T item, vector<T> vec)
+    {
+        return any_of(vec.begin(), vec.end(), [&](const T& elem) { return elem == item; });
     }
 }
