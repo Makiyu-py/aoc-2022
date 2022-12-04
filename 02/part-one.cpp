@@ -19,7 +19,7 @@ int main()
         {"Z", 3},
     };
 
-    int total_points;
+    int total_points = 0;
 
     for (string round : rounds)
     {
@@ -35,9 +35,6 @@ int main()
             total_points += 3;
         }
     }
-
-    // help apparently it's too low?
-    // i don't know how that came to be
-    // it's literall
+    
     cout << total_points << endl;
 }

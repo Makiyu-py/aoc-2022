@@ -27,18 +27,19 @@ namespace aoc_utils
     }
     vector<string> split_string(string &to_split, string delim)
     {
+        string throwaway = to_split;
         vector<string> out;
 
         size_t pos = 0;
         string token;
-        while ((pos = to_split.find(delim)) != std::string::npos) {
-            token = to_split.substr(0, pos);
+        while ((pos = throwaway.find(delim)) != string::npos) {
+            token = throwaway.substr(0, pos);
             out.push_back(token);
-            to_split.erase(0, pos + delim.length());
+            throwaway.erase(0, pos + delim.length());
         }
-        // last item is out of the loop and becomes to_split
-        if (!to_split.empty())
-            out.push_back(to_split);
+        // last item is out of the loop and becomes throwaway (aka to_split)
+        if (!throwaway.empty())
+            out.push_back(throwaway);
 
         return out;
     }
