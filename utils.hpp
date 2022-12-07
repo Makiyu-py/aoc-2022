@@ -72,4 +72,14 @@ namespace aoc_utils
         
         return common_elements;
     }
+    vector<int> stoi_vec_items(vector<string> vec)
+    {
+        vector<int> to_return;
+
+        for (string item : vec)
+        {
+            to_return.push_back(stoi(item));
+        }
+        return to_return;
+    }
 }

@@ -5,17 +5,6 @@
 
 using namespace std;
 
-vector<int> string_vec_to_int_vec(vector<string> vec)
-{  // i think this is useful for this but not enough to be in utils
-    vector<int> to_return;
-
-    for (string item : vec)
-    {
-        to_return.push_back(stoi(item));
-    }
-    return to_return;
-}
-
 int main()
 {
     string input_text = aoc_utils::readFile("../inputs/04.txt");
@@ -24,8 +13,8 @@ int main()
     for (string pair : aoc_utils::split_string(input_text, "\n"))
     {
         vector<string> ranges = aoc_utils::split_string(pair, ",");
-        vector<int> first_range = string_vec_to_int_vec(aoc_utils::split_string(ranges.at(0), "-"));
-        vector<int> second_range = string_vec_to_int_vec(aoc_utils::split_string(ranges.at(1), "-"));
+        vector<int> first_range = aoc_utils::stoi_vec_items(aoc_utils::split_string(ranges.at(0), "-"));
+        vector<int> second_range = aoc_utils::stoi_vec_items(aoc_utils::split_string(ranges.at(1), "-"));
 
         set<int> first_range_expanded;
         set<int> second_range_expanded;
